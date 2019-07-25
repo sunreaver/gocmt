@@ -107,7 +107,7 @@ func addFuncDeclComment(fd *ast.FuncDecl, commentTemplate string) {
 			}
 
 			if fd.Type.Results != nil {
-				text += fmt.Sprintf("\n// returns <%d>:", fd.Type.Results.NumFields())
+				text += "\n// returns:"
 				index := 1
 				for _, v := range fd.Type.Results.List {
 					if len(v.Names) == 0 {
