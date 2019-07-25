@@ -24,7 +24,7 @@ usage: gocmt [flags] [file ...]
     	Directory to process
   -i	Make in-place editing
   -t string
-    	Comment template (default "...")
+    	Comment template (default "")
 ```
 
 # Example
@@ -81,8 +81,17 @@ func main() {
 
 func unexport(s string) {
 }
-// Export ...
-func Export(s string) {
+
+// Export Export_todo
+// s: string
+// s2: string
+// data: string
+// list: &{257 int}
+// returns:
+// d: string
+// e: error
+// e2: error
+func Export(s, s2 string, data string, list ...int) (d string, e, e2 error) {
 }
 
 // ExportWithComment ...
