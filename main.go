@@ -24,7 +24,7 @@ var (
 
 var (
 	inPlace  = flag.Bool("i", false, "Make in-place editing")
-	template = flag.String("t", "...", "Comment template")
+	template = flag.String("t", "todo", "Comment template")
 	dir      = flag.String("d", "", "Directory to process")
 )
 
