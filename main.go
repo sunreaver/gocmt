@@ -15,7 +15,7 @@ import (
 
 var (
 	// ensure that the comment starts on a newline (without the \n, sometimes it starts on the previous }
-	commentBase = "\n// %s "
+	commentBase = "\n// %s %s_"
 	// if it's in an indented block, this makes sure that the indentation is correct
 	commentIndentedBase = "// %s "
 	fset                = token.NewFileSet()

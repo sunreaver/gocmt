@@ -95,7 +95,7 @@ func buildComments(af *ast.File, commentTemplate string) (*ast.File, error) {
 
 func addFuncDeclComment(fd *ast.FuncDecl, commentTemplate string) {
 	if fd.Doc == nil || strings.TrimSpace(fd.Doc.Text()) == fd.Name.Name {
-		text := fmt.Sprintf(commentTemplate, fd.Name)
+		text := fmt.Sprintf(commentTemplate, fd.Name, fd.Name)
 		pos := fd.Pos() - token.Pos(1)
 		fd.Doc = &ast.CommentGroup{List: []*ast.Comment{{Slash: pos, Text: text}}}
 	}
@@ -104,7 +104,7 @@ func addFuncDeclComment(fd *ast.FuncDecl, commentTemplate string) {
 
 func addValueSpecComment(gd *ast.GenDecl, vs *ast.ValueSpec, commentTemplate string) {
 	if gd.Doc == nil || strings.TrimSpace(gd.Doc.Text()) == vs.Names[0].Name {
-		text := fmt.Sprintf(commentTemplate, vs.Names[0].Name)
+		text := fmt.Sprintf(commentTemplate, vs.Names[0].Name, vs.Names[0].Name)
 		pos := gd.Pos() - token.Pos(1)
 		gd.Doc = &ast.CommentGroup{List: []*ast.Comment{{Slash: pos, Text: text}}}
 	}
@@ -113,7 +113,7 @@ func addValueSpecComment(gd *ast.GenDecl, vs *ast.ValueSpec, commentTemplate str
 func addParenValueSpecComment(vs *ast.ValueSpec, commentTemplate string) {
 	if vs.Doc == nil || strings.TrimSpace(vs.Doc.Text()) == vs.Names[0].Name {
 		commentTemplate = strings.Replace(commentTemplate, commentBase, commentIndentedBase, 1)
-		text := fmt.Sprintf(commentTemplate, vs.Names[0].Name)
+		text := fmt.Sprintf(commentTemplate, vs.Names[0].Name, vs.Names[0].Name)
 		pos := vs.Pos() - token.Pos(1)
 		vs.Doc = &ast.CommentGroup{List: []*ast.Comment{{Slash: pos, Text: text}}}
 	}
@@ -121,7 +121,7 @@ func addParenValueSpecComment(vs *ast.ValueSpec, commentTemplate string) {
 
 func addTypeSpecComment(gd *ast.GenDecl, ts *ast.TypeSpec, commentTemplate string) {
 	if gd.Doc == nil || strings.TrimSpace(gd.Doc.Text()) == ts.Name.Name {
-		text := fmt.Sprintf(commentTemplate, ts.Name.Name)
+		text := fmt.Sprintf(commentTemplate, ts.Name.Name, ts.Name.Name)
 		pos := gd.Pos() - token.Pos(1)
 		gd.Doc = &ast.CommentGroup{List: []*ast.Comment{{Slash: pos, Text: text}}}
 	}
