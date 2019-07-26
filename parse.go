@@ -101,7 +101,7 @@ func addFuncDeclComment(fd *ast.FuncDecl, commentTemplate string) {
 			if fd.Type.Params != nil {
 				for _, v := range fd.Type.Params.List {
 					for _, name := range v.Names {
-						text += fmt.Sprintf("\n// %v: %v", name, v.Type)
+						text += fmt.Sprintf("\n// @%v: %v", name, v.Type)
 					}
 				}
 			}
@@ -112,10 +112,10 @@ func addFuncDeclComment(fd *ast.FuncDecl, commentTemplate string) {
 				for _, v := range fd.Type.Results.List {
 					if len(v.Names) == 0 {
 						// 未定义返回参数名
-						text += fmt.Sprintf("\n// @%d: %v", index, v.Type)
+						text += fmt.Sprintf("\n// #%d: %v", index, v.Type)
 					} else {
 						for _, name := range v.Names {
-							text += fmt.Sprintf("\n// %v: %v", name, v.Type)
+							text += fmt.Sprintf("\n// @%v: %v", name, v.Type)
 						}
 					}
 				}

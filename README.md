@@ -83,14 +83,14 @@ func unexport(s string) {
 }
 
 // Export Export_todo
-// s: string
-// s2: string
-// data: string
-// list: &{257 int}
+// @s: string
+// @s2: string
+// @data: string
+// @list: &{257 int}
 // returns:
-// d: string
-// e: error
-// e2: error
+// @d: string
+// @e: error
+// @e2: error
 func Export(s, s2 string, data string, list ...int) (d string, e, e2 error) {
 }
 
